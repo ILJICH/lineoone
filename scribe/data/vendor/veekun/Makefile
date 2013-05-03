@@ -4,7 +4,7 @@
 fetch:
 	@echo "--- fetchvendor: Fetching veekun csv data..."
 	git clone https://github.com/veekun/pokedex.git
-	mv pokedex/pokedex/data/csv/ cvs
+	mv pokedex/pokedex/data/csv/ csv
 	rm -rf pokedex
 	@echo "--- fetchvendor: ...done!"
 

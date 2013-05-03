@@ -9,4 +9,6 @@ Handler to serve IV calculator.
 
 
 class IVCalcHandler(RequestHandler):
-    pass
+
+    def get(self):
+        self.write("It works!")
