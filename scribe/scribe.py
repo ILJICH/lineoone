@@ -1,12 +1,12 @@
 # coding: utf-8
+"""
+Working with data.
+"""
+
 import csv
 from os import path
 
 __author__ = 'iljich'
-
-"""
-Working with data.
-"""
 
 
 class Scribe(object):
@@ -15,12 +15,13 @@ class Scribe(object):
 
     path = 'data'
 
-    def cached(self, fn):
+    @classmethod
+    def cached(cls, fn):
         def wrapped(*args, **kwargs):
             name = repr((fn.__name__, args, kwargs))
-            if name not in self._cache:
-                self._cache[name] = fn(*args, **kwargs)
-            return self._cache[name]
+            if name not in cls._cache:
+                cls._cache[name] = fn(*args, **kwargs)
+            return cls._cache[name]
         return wrapped
 
     def get_data(self, file_, vendor=None):
@@ -42,7 +43,7 @@ class IVScribe(Scribe):
         for pokemon_id, stat_id, stat, _ in stats:
             if pokemon_id not in result:
                 result[pokemon_id] = {}
-            result[pokemon_id][stat_id] = stat
+            result[int(pokemon_id)][int(stat_id)] = int(stat)
         return result
 
     @Scribe.cached
@@ -53,8 +54,8 @@ class IVScribe(Scribe):
         language_id = 9
         result = {}
         for nature_id, local_language_id, name in names:
-            if local_language_id is language_id:
-                result[nature_id] = name
+            if int(local_language_id) is language_id:
+                result[int(nature_id)] = name
         return result
 
     def get_natures(self):
@@ -65,5 +66,5 @@ class IVScribe(Scribe):
 
         result = {}
         for nature_id, _, dec, inc, _, _ in natures:
-            result[nature_id] = (inc, dec)
+            result[int(nature_id)] = (int(inc), int(dec))
         return result

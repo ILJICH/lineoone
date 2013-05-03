@@ -1,4 +1,8 @@
 # coding: utf-8
+"""
+Main web server.
+"""
+
 from logging import getLogger
 from tornado import ioloop
 from tornado.web import RedirectHandler, Application, StaticFileHandler
@@ -6,10 +10,6 @@ from tornado.web import RedirectHandler, Application, StaticFileHandler
 from webserver.handlers.iv_calc import IVCalcHandler
 
 __author__ = 'iljich'
-
-"""
-Main web server.
-"""
 
 
 def start_server(port):
