@@ -1,0 +1,5 @@
+*.py[oc]
+.idea/*
+scribe/data/vendor/*/*
+!*Makefile
+lineoone.iml
