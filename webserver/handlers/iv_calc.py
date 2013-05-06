@@ -11,4 +11,5 @@ __author__ = 'iljich'
 class IVCalcHandler(RequestHandler):
 
     def get(self):
-        self.write("It works!")
+        env = self.application.settings['jinja2_environment']
+        self.finish(env.get_template('iv_calc/main.jinja2').render())

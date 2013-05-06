@@ -4,6 +4,8 @@ Main web server.
 """
 
 from logging import getLogger
+from jinja2.environment import Environment
+from jinja2.loaders import PackageLoader
 from tornado import ioloop
 from tornado.web import RedirectHandler, Application, StaticFileHandler
 
@@ -18,11 +20,16 @@ def start_server(port):
 
     logger.info('Rise and shine')
 
+    settings = {
+        'jinja2_environment': Environment(
+            loader=PackageLoader('webserver', 'templates'))
+    }
+
     application = Application([
         (r'/', RedirectHandler, {'url': r'/iv_calc'}),
         (r'/iv_calc', IVCalcHandler),
         (r'/public/(.*)', StaticFileHandler, {'path': 'public'})
-    ])
+    ], **settings)
 
     application.listen(port)
     ioloop.IOLoop.instance().start()
