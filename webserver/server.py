@@ -28,7 +28,7 @@ def start_server(port):
     application = Application([
         (r'/', RedirectHandler, {'url': r'/iv_calc'}),
         (r'/iv_calc', IVCalcHandler),
-        (r'/public/(.*)', StaticFileHandler, {'path': 'public'})
+        (r'/public/(.*)', StaticFileHandler, {'path': 'webserver/public'})
     ], **settings)
 
     application.listen(port)

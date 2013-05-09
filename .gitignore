@@ -1,5 +1,6 @@
 *.py[oc]
 .idea/*
 scribe/data/vendor/*/*
+webserver/public/vendor/*/*
 !*Makefile
 lineoone.iml

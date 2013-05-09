@@ -17,6 +17,7 @@ cleanpyc:
 cleanvendor:
 	@echo "--- cleanvendor: Remove all vendor data"
 	make -C scribe/data/vendor/* clean
+	make -C webserver/public/vendor/* clean
 
 clean: cleanpyc
 
@@ -24,6 +25,7 @@ clean: cleanpyc
 fetchvendor:
 	@echo "--- fetchvendor: Get exernal datafiles"
 	make -C scribe/data/vendor/* fetch
+	make -C `ls webserver/public/vendor/*/Makefile | sed 's/Makefile//g'` fetch
 
 
 pep8:

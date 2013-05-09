@@ -10,35 +10,132 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
-    <style>
-        body {
-            padding-top: 60px;
-            padding-bottom: 40px;
-        }
-    </style>
-    <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="public/iv_calc/css/main.css">
+    <link rel="stylesheet" href="/public/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/vendor/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/public/vendor/select2/select2.css">
 
-    <script src="public/vendor/modernizr/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link rel="stylesheet" href="/public/iv_calc/css/main.css">
+
+    <script src="/public/vendor/modernizr/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
 
-<div class="container">
+<div class="container-fluid wrapper">
     {% block contents %}
-        <h2>It works!</h2>
+        <h1>It works!</h1>
+
+        <div class="row-fluid">
+            <div class="span8 block">
+                <h4>Pokemon:</h4>
+                <select id="pokemon-select">
+                    <option value="172">Pichu</option>
+                    <option value="182">Belossom</option>
+                    <option value="192">Sunflora</option>
+                </select>
+            </div>
+            <div class="span4 pull-right">
+                <img src="/public/vendor/veekun/sugimori/172.png" class="img-circle sprite" />
+            </div>
+        </div>
+
+        <div class="row-fluid gap">
+            <div class="span4 block"></div>
+            <div class="span4 block"></div>
+            <div class="span4 block"></div>
+        </div>
+        <div class="row-fluid">
+            <div class="span4 block"></div>
+            <div class="span4 block"></div>
+            <div class="span4 block"></div>
+        </div>
+
+        <div class="row-fluid gap">
+            <div class="span12 block">
+                <table class="table table-compressed table-hover">
+                    <thead>
+                        <tr>
+                            <th>LVL</th>
+                            <th>HP</th>
+                            <th>ATK</th>
+                            <th>DEF</th>
+                            <th>SpA</th>
+                            <th>SpD</th>
+                            <th>SPE</th>
+                            <th><a class="btn btn-mini table-button" href="#"><i class="icon-remove-circle"></i> Clear</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>14</strong></td>
+                            <td>68</td>
+                            <td>34</td>
+                            <td>58 / 4</td>
+                            <td>46</td>
+                            <td>90</td>
+                            <td>128</td>
+                            <td><a class="btn btn-mini table-button" href="#"><i class="icon-remove"></i> Remove</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row-fluid gap">
+            <div class="span12 block">
+                <div class="row-fluid">
+                    <div class="input-prepend input-append span1">
+                        <button class="btn stat-btn" type="button"><i class="icon-minus"></i></button>
+                        <input type="text" class="stat-input" placeholder="LVL">
+                        <button class="btn stat-btn" type="button"><i class="icon-plus"></i></button>
+                    </div>
+                    <div class="input-prepend input-append span1">
+                        <button class="btn stat-btn" type="button"><i class="icon-minus"></i></button>
+                        <input type="text" class="stat-input" placeholder="HP">
+                        <button class="btn stat-btn" type="button">
+                        <i class="icon-plus"></i></button>
+                    </div>
+                    <div class="input-prepend input-append span1">
+                        <button class="btn stat-btn" type="button"><i class="icon-minus"></i></button>
+                        <input type="text" class="stat-input" placeholder="ATK">
+                        <button class="btn stat-btn" type="button"><i class="icon-plus"></i></button>
+                    </div>
+                    <div class="input-prepend input-append span1">
+                        <button class="btn stat-btn" type="button"><i class="icon-minus"></i></button>
+                        <input type="text" class="stat-input" placeholder="DEF">
+                        <button class="btn stat-btn" type="button"><i class="icon-plus"></i></button>
+                    </div>
+                    <div class="input-prepend input-append span1">
+                        <button class="btn stat-btn" type="button"><i class="icon-minus"></i></button>
+                        <input type="text" class="stat-input" placeholder="SpA">
+                        <button class="btn stat-btn" type="button"><i class="icon-plus"></i></button>
+                    </div>
+                    <div class="input-prepend input-append span1">
+                        <button class="btn stat-btn" type="button"><i class="icon-minus"></i></button>
+                        <input type="text" class="stat-input" placeholder="SpD">
+                        <button class="btn stat-btn" type="button"><i class="icon-plus"></i></button>
+                    </div>
+                    <div class="input-prepend input-append span1">
+                        <button class="btn stat-btn" type="button"><i class="icon-minus"></i></button>
+                        <input type="text" class="stat-input" placeholder="SPE">
+                        <button class="btn stat-btn" type="button"><i class="icon-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endblock contents %}
 </div> <!-- /container -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="public/vendor/jquery/js/jquery-1.9.1.min.js"><\/script>')</script>
 
-<script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/public/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="public/iv_calc/js/main.js"></script>
+<script src="/public/vendor/select2/select2.min.js"></script>
+
+<script src="/public/iv_calc/js/main.js"></script>
 
 <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
